@@ -12,12 +12,17 @@ script:
   bash -c
   "yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&
    yum install -y https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm &&
+   yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo &&
+   rpm -ivh https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-selinux-17.03.0.ce-1.el7.centos.noarch.rpm
+   yum install -y libselinux-utils policycoreutils policycoreutils-python selinux-policy-base selinux-policy-targeted
    mkdir -p /rpms &&
    yum remove -y python-chardet &&
-   yum -y install --downloadonly --downloaddir=/rpms docker docker-python docker-compose python-chardet python-requests &&
+   yum -y install --downloadonly --downloaddir=/rpms libselinux-utils policycoreutils policycoreutils-python selinux-policy-base selinux-policy-targeted &&
+   yum -y install --downloadonly --downloaddir=/rpms docker-python docker-compose python-chardet python-requests &&
    yum -y install --downloadonly --downloaddir=/rpms audit rsync jq git tcpdump nc bind-utils net-tools &&
    yum -y install --downloadonly --downloaddir=/rpms ceph-deploy ceph ceph-radosgw rbd-nbd rbd-mirror open-vm-tools  nfs-utils && 
    yum -y install --downloadonly --downloaddir=/rpms kubernetes-cni-0.6.0 kubectl-1.10.3 kubelet-1.10.3 kubeadm-1.10.3 &&
+   
    yum install -y createrepo &&
    yum clean all &&
    createrepo /rpms"
