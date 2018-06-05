@@ -14,6 +14,8 @@ script:
    yum install -y https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm &&
    mkdir -p /rpms &&
    yum remove -y python-chardet &&
+   yum -y install wget &&
+   wget -P /rpms https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-17.03.0.ce-1.el7.centos.noarch.rpm https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-17.03.0.ce-1.el7.centos.x86_64.rpm
    yum -y install --downloadonly --downloaddir=/rpms https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-17.03.0.ce-1.el7.centos.noarch.rpm https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-17.03.0.ce-1.el7.centos.x86_64.rpm &&
    yum -y install --downloadonly --downloaddir=/rpms docker-python docker-compose python-chardet python-requests &&
    yum -y install --downloadonly --downloaddir=/rpms audit rsync jq git tcpdump nc bind-utils net-tools &&
