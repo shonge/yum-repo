@@ -18,7 +18,7 @@ script:
    wget -P /rpms https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-17.03.0.ce-1.el7.centos.noarch.rpm https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-17.03.0.ce-1.el7.centos.x86_64.rpm
    yum -y install --downloadonly --downloaddir=/rpms https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-17.03.0.ce-1.el7.centos.noarch.rpm https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-17.03.0.ce-1.el7.centos.x86_64.rpm &&
    yum -y install --downloadonly --downloaddir=/rpms docker-python docker-compose python-chardet python-requests &&
-   yum -y install --downloadonly --downloaddir=/rpms audit rsync jq git tcpdump nc bind-utils net-tools &&
+   yum -y install --downloadonly --downloaddir=/rpms audit rsync jq git tcpdump nc bind-utils bind-license net-tools &&
    yum -y install --downloadonly --downloaddir=/rpms ceph-deploy ceph ceph-radosgw rbd-nbd rbd-mirror open-vm-tools  nfs-utils && 
    yum -y install --downloadonly --downloaddir=/rpms kubernetes-cni-0.6.0 kubectl-1.9.6 kubelet-1.9.6 kubeadm-1.9.6 &&
    yum install -y createrepo &&
