@@ -18,7 +18,7 @@ script:
    mkdir -p /rpms &&
    yum remove -y python-chardet &&
    yum -y install --downloadonly --downloaddir=/rpms docker docker-python docker-compose python-chardet python-requests &&
-   yum -y install --downloadonly --downloaddir=/rpms audit rsync jq git tcpdump nc bind-utils net-tools yum-utils &&
+   yum -y install --downloadonly --downloaddir=/rpms audit rsync jq git tcpdump nc bind-utils net-tools yum-utils libxml2-python &&
    yum -y install --downloadonly --downloaddir=/rpms glusterfs-server haproxy keepalived Percona-XtraDB-Cluster-57 &&
    yum install -y createrepo &&
    yum clean all &&
