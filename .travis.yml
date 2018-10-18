@@ -17,6 +17,7 @@ script:
    yum install -y http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-release-0.1-6.noarch.rpm &&
    mkdir -p /rpms &&
    yum remove -y python-chardet &&
+   yum list docker docker-python docker-compose &&
    yum -y update  --downloadonly --downloaddir=/rpms docker docker-python docker-compose python-chardet python-requests &&
    yum -y update  --downloadonly --downloaddir=/rpms audit rsync jq git tcpdump nc bind-utils net-tools yum-utils libxml2-python &&
    yum -y update  --downloadonly --downloaddir=/rpms glusterfs-server haproxy keepalived Percona-XtraDB-Cluster-57 &&
